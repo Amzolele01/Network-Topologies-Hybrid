@@ -44,11 +44,14 @@ The Star topology connects all devices to a central switch. Each PC has its own 
 | PC2    | FastEthernet0 | 192.168.10.4 | 255.255.255.0 | 192.168.10.1 |
 | PC3    | FastEthernet0 | 192.168.10.5 | 255.255.255.0 | 192.168.10.1 |
 
+#### ptk file
+[Download my presentation](./pkt-files/Star.pkt)
+
+
 #### Screenshot
-![Image](https://github.com/user-attachments/assets/e3286b08-6bfd-45c0-a73a-7f6984c55018)
+![Alt text](./images/Star.jpeg)
 
-
-
+________________________________________________________________________________________________________________________
 #### Configuration Notes
 - PCs connected to a central switch.  
 - Each PC assigned IPv4 addresses in the same subnet.  
