@@ -66,7 +66,7 @@ The Star topology connects all devices to a central switch. Each PC has its own 
 #### Screenshot
 ![Alt text](./images/Star.jpeg)
 #### ptk file
-[Download the Cisco Packet Tracer topology - Star](./ptk-files/Star.pkt)
+[Download the Cisco Packet Tracer topology - Star](pkt-files/Star.pkt)
 
 #### Configuration Notes
 - PCs connected to a central switch.  
@@ -95,7 +95,7 @@ The Mesh topology connects every switch to every other switch, and each PC is co
 - Assigned IPv4 addresses within the same subnet.  
 - Verified connectivity through ping tests between all PCs.  
 
-[Download the Cisco Packet Tracer topology](./ptk-files/mesh.pkt)
+[Download the Cisco Packet Tracer topology - Mesh](pkt-files/mesh.pkt)
 
 
 ## 🖧 Part II – VLAN Configuration (802.1Q)
