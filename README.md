@@ -144,7 +144,7 @@ All devices are assigned IP addresses from the same subnet (192.168.50.0/24). Th
 | PC11   | FastEthernet0  | 192.168.50.13  | 255.255.255.0   | 192.168.50.1   |
 
 #### Screenshot
-![Alt text](./images/exStar.jpeg) //external star
+![Alt text](./images/exStar.jpeg) 
 
 #### Configuration Notes
 - 1 central switch connects to 4 peripheral switches.  
