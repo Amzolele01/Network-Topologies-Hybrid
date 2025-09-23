@@ -68,13 +68,35 @@ The Star topology connects all devices to a central switch. Each PC has its own 
 #### ptk file
 [Download the Cisco Packet Tracer topology](./ptk-files/Star.pkt)
 
-________________________________________________________________________________________________________________________
 #### Configuration Notes
 - PCs connected to a central switch.  
 - Each PC assigned IPv4 addresses in the same subnet.  
 - Successful ping tests between PCs confirmed connectivity.
 
 ---
+
+### 3. Mesh Topology
+The Mesh topology connects every switch to every other switch, and each PC is connected to its dedicated switch. This setup ensures high redundancy and reliability. Even if one link fails, all PCs can still communicate through alternative paths.
+
+#### IPv4 Addressing Table
+| Device | Interface | IPv4 Address  | Subnet Mask     | Default Gateway |
+|--------|-----------|---------------|-----------------|----------------|
+| PC0    | FastEthernet0 | 192.168.30.2 | 255.255.255.0 | 192.168.30.1 |
+| PC1    | FastEthernet0 | 192.168.30.3 | 255.255.255.0 | 192.168.30.1 |
+| PC2    | FastEthernet0 | 192.168.30.4 | 255.255.255.0 | 192.168.30.1 |
+| PC3    | FastEthernet0 | 192.168.30.5 | 255.255.255.0 | 192.168.30.1 |
+
+#### Screenshot
+![Alt text](./images/mesh.jpeg)
+
+#### Configuration Notes
+- Each PC connected to a dedicated switch.  
+- All switches connected to every other switch to simulate full mesh connectivity.  
+- Assigned IPv4 addresses within the same subnet.  
+- Verified connectivity through ping tests between all PCs.  
+
+[Download the Cisco Packet Tracer topology](./ptk-files/mesh.pkt)
+
 
 ## 🖧 Part II – VLAN Configuration (802.1Q)
 *(To be completed later)*
