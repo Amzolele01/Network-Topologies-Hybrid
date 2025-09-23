@@ -45,7 +45,7 @@ The Star topology connects all devices to a central switch. Each PC has its own 
 | PC3    | FastEthernet0 | 192.168.10.5 | 255.255.255.0 | 192.168.10.1 |
 
 #### ptk file
-[Download my presentation](./pkt-files/Star.pkt)
+[Download my presentation](./ptk-files/Star.pkt)
 
 
 #### Screenshot
