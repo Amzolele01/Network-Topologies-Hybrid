@@ -4,7 +4,7 @@
 **Department of Computer Science**
 
 ---
-![Alt text](./images/star_image.png)
+![Alt text](./images/Star.jpeg)
 
 ## 📌 Project Overview
 This repository contains the implementation and documentation for the CMPG 325 Computer Networks semester-long project.  
