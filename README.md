@@ -122,8 +122,39 @@ The Ring topology connects devices in a closed loop, where each device is connec
 
 ---
 
+### 5. Extended Star Topology
+The Extended Star topology is a hierarchical structure where a central switch connects to multiple peripheral switches, and each peripheral switch connects to several PCs. This design provides scalability and improved management compared to a simple star.
 
+#### IPv4 Addressing Table
+All devices are assigned IP addresses from the same subnet (192.168.50.0/24). This allows direct communication between all PCs without requiring a router.
 
+| Device | Interface      | IPv4 Address   | Subnet Mask     | Default Gateway |
+|--------|----------------|----------------|-----------------|----------------|
+| PC0    | FastEthernet0  | 192.168.50.2   | 255.255.255.0   | 192.168.50.1   |
+| PC1    | FastEthernet0  | 192.168.50.3   | 255.255.255.0   | 192.168.50.1   |
+| PC2    | FastEthernet0  | 192.168.50.4   | 255.255.255.0   | 192.168.50.1   |
+| PC3    | FastEthernet0  | 192.168.50.5   | 255.255.255.0   | 192.168.50.1   |
+| PC4    | FastEthernet0  | 192.168.50.6   | 255.255.255.0   | 192.168.50.1   |
+| PC5    | FastEthernet0  | 192.168.50.7   | 255.255.255.0   | 192.168.50.1   |
+| PC6    | FastEthernet0  | 192.168.50.8   | 255.255.255.0   | 192.168.50.1   |
+| PC7    | FastEthernet0  | 192.168.50.9   | 255.255.255.0   | 192.168.50.1   |
+| PC8    | FastEthernet0  | 192.168.50.10  | 255.255.255.0   | 192.168.50.1   |
+| PC9    | FastEthernet0  | 192.168.50.11  | 255.255.255.0   | 192.168.50.1   |
+| PC10   | FastEthernet0  | 192.168.50.12  | 255.255.255.0   | 192.168.50.1   |
+| PC11   | FastEthernet0  | 192.168.50.13  | 255.255.255.0   | 192.168.50.1   |
+
+#### Screenshot
+![Alt text](./images/exStar.jpeg) //external star
+
+#### Configuration Notes
+- 1 central switch connects to 4 peripheral switches.  
+- Each peripheral switch connects to 3 PCs (total 12 PCs).  
+- All PCs share the subnet 192.168.50.0/24 for simplicity.  
+- Verified full connectivity with successful ping tests between PCs across all switches.  
+
+[Download the Cisco Packet Tracer topology - Extended Star](pkt-files/exStar.pkt)
+
+---
 ## 🖧 Part II – VLAN Configuration (802.1Q)
 *(To be completed later)*
 
