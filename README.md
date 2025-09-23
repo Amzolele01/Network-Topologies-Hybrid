@@ -181,27 +181,27 @@ All devices are in a **single subnet** (`192.168.100.0/24`) for simplicity and c
 #### Star Branch
 - 3 PCs connected to one switch.
 - IPs: 192.168.100.6 – 192.168.100.8
-- Screenshot: `star_branch.png` *(update filename as needed)*
+- Screenshot: `star_branch.jpeg` 
 - Notes: Central switch allows full connectivity to Hybrid.
 
 #### Bus Branch
 - 4 PCs connected to **PT Hub0**; hub uplinked to Core Switch.
 - IPs: 192.168.100.2 – 192.168.100.5
-- Screenshot: `bus_branch.png`
+- Screenshot: `bus_branch.jpeg`
 - Notes: Hub simulates shared bus medium. PCs tested with ping within branch and to other branches.
 
 #### Extended Star Branch
 - 6 PCs connected across 2 switches forming extended star.
 - One switch uplinked to Core Switch.
 - IPs: 192.168.100.15 – 192.168.100.21
-- Screenshot: `extended_star_branch.png`
+- Screenshot: `extended_star_branch.jpeg`
 - Notes: Mirrors Star topology with more devices.
 
 #### Ring Branch
 - 3 switches connected in a loop, each with one PC.
 - One switch uplinked to Core Switch.
 - IPs: 192.168.100.15 – 192.168.100.18
-- Screenshot: `ring_branch.png`
+- Screenshot: `ring_branch.jpeg`
 - Notes: Redundancy tested; ping succeeds across all PCs.
 
 #### Mesh Branch
