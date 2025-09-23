@@ -97,6 +97,32 @@ The Mesh topology connects every switch to every other switch, and each PC is co
 
 [Download the Cisco Packet Tracer topology - Mesh](pkt-files/mesh.pkt)
 
+---
+### 4. Ring Topology
+The Ring topology connects devices in a closed loop, where each device is connected to exactly two others, forming a circular pathway. Data travels in one or both directions around the ring.
+
+#### IPv4 Addressing Table
+| Device | Interface | IPv4 Address  | Subnet Mask     | Default Gateway |
+|--------|-----------|---------------|-----------------|----------------|
+| PC0    | FastEthernet0 | 192.168.40.2 | 255.255.255.0 | 192.168.40.1 |
+| PC1    | FastEthernet0 | 192.168.40.3 | 255.255.255.0 | 192.168.40.1 |
+| PC2    | FastEthernet0 | 192.168.40.4 | 255.255.255.0 | 192.168.40.1 |
+| PC3    | FastEthernet0 | 192.168.40.5 | 255.255.255.0 | 192.168.40.1 |
+
+#### Screenshot
+![Alt text](./images/ring.jpeg)
+
+#### Configuration Notes
+- Each PC connected to a switch forming a circular ring.  
+- Each switch connected to two other switches to complete the loop.  
+- IPv4 addresses assigned in the same subnet.  
+- Connectivity confirmed with successful ping tests around the ring.  
+
+[Download the Cisco Packet Tracer topology - Ring](pkt-files/ring.pkt)
+
+---
+
+
 
 ## 🖧 Part II – VLAN Configuration (802.1Q)
 *(To be completed later)*
