@@ -4,7 +4,6 @@
 **Department of Computer Science**
 
 ---
-![Alt text](./images/Star.jpeg)
 
 ## 📌 Project Overview
 This repository contains the implementation and documentation for the CMPG 325 Computer Networks semester-long project.  
@@ -46,10 +45,9 @@ The Star topology connects all devices to a central switch. Each PC has its own 
 | PC3    | FastEthernet0 | 192.168.10.5 | 255.255.255.0 | 192.168.10.1 |
 
 #### Screenshot
-![Image](https://github.com/user-attachments/assets/e3286b08-6bfd-45c0-a73a-7f6984c55018)
+![Alt text](./images/Star.jpeg)
 
-
-
+________________________________________________________________________________________________________________________
 #### Configuration Notes
 - PCs connected to a central switch.  
 - Each PC assigned IPv4 addresses in the same subnet.  
