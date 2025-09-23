@@ -47,7 +47,7 @@ The Bus topology connects multiple devices using a single central hub, simulatin
 - All PCs configured in the same subnet.  
 - Successful ping tests confirmed communication between devices.  
 
-[Download the Cisco Packet Tracer topology](pkt-files/Bus.pkt)
+[Download the Cisco Packet Tracer topology - Bus](pkt-files/Bus.pkt)
 
 ---
 
