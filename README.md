@@ -208,7 +208,7 @@ All devices are in a **single subnet** (`192.168.100.0/24`) for simplicity and c
 - 3 switches fully interconnected; each switch has one PC.
 - One switch uplinked to Core Switch.
 - IPs: 192.168.100.19 – 192.168.100.122
-- Screenshot: `mesh_branch.png`
+- Screenshot: `mesh_branch.jpeg`
 - Notes: Fully connected internal paths, tested with ping.
 
 ---
@@ -223,11 +223,14 @@ All devices are in a **single subnet** (`192.168.100.0/24`) for simplicity and c
 ### 5. Hybrid Overview
 - All branches are connected via the **Core Switch (2960)**.  
 - **Single subnet** ensures all PCs can ping each other and reach the server.  
-- Hybrid screenshot: `hybrid_full.png`  
+- Hybrid screenshot: `Hybrid.jpeg`  
+![Alt text](./images/Hybrid.jpeg) 
 - Notes:  
   - Orange link lights observed but connectivity verified  
   - All branches tested individually and collectively  
   - Ping tests confirm successful data exchange across all PCs
+
+  [Download the Cisco Packet Tracer topology - Hybrid Full](pkt-files/hybrid.pkt)
 
 ---
 
