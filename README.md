@@ -44,11 +44,11 @@ The Star topology connects all devices to a central switch. Each PC has its own 
 | PC2    | FastEthernet0 | 192.168.10.4 | 255.255.255.0 | 192.168.10.1 |
 | PC3    | FastEthernet0 | 192.168.10.5 | 255.255.255.0 | 192.168.10.1 |
 
-#### ptk file
-[Download the Cisco Packet Tracer topology](./ptk-files/Star.pkt)
 
 #### Screenshot
 ![Alt text](./images/Star.jpeg)
+#### ptk file
+[Download the Cisco Packet Tracer topology](./ptk-files/Star.pkt)
 
 ________________________________________________________________________________________________________________________
 #### Configuration Notes
