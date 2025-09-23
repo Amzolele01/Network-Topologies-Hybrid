@@ -155,6 +155,89 @@ All devices are assigned IP addresses from the same subnet (192.168.50.0/24). Th
 [Download the Cisco Packet Tracer topology - Extended Star](pkt-files/exStar.pkt)
 
 ---
+
+## Part I – Hybrid Network Topology
+
+### 1. Overview
+This section documents the **Hybrid network** integrating all 5 topologies: Star, Bus, Ring, Mesh, and Extended Star.  
+The network consists of 22 PCs, one Core Switch (Cisco 2960), one Hub (PT Hub0 for Bus segment), and a server providing DNS, HTTP, and DHCP services.
+
+---
+
+### 2. IP Address Plan
+All devices are in a **single subnet** (`192.168.100.0/24`) for simplicity and connectivity.
+
+| Device Type | Devices          | IP Addresses               | Notes |
+|-------------|-----------------|----------------------------|-------|
+| PCs         | PC0 – PC21      | 192.168.100.2 – 192.168.100.23 | Sequential assignment per branch |
+| Server      | Server0         | 192.168.100.20             | DNS, HTTP, DHCP |
+| Core Switch | Switch0 (2960)  | N/A                        | Connects all branches |
+| Hub         | PT Hub0         | N/A                        | Bus segment only |
+
+---
+
+### 3. Topology Segments
+
+#### Star Branch
+- 3 PCs connected to one switch.
+- IPs: 192.168.100.2 – 192.168.100.4
+- Screenshot: `star_branch.png` *(update filename as needed)*
+- Notes: Central switch allows full connectivity to Hybrid.
+
+#### Bus Branch
+- 4 PCs connected to **PT Hub0**; hub uplinked to Core Switch.
+- IPs: 192.168.100.5 – 192.168.100.8
+- Screenshot: `bus_branch.png`
+- Notes: Hub simulates shared bus medium. PCs tested with ping within branch and to other branches.
+
+#### Ring Branch
+- 3 switches connected in a loop, each with one PC.
+- One switch uplinked to Core Switch.
+- IPs: 192.168.100.9 – 192.168.100.11
+- Screenshot: `ring_branch.png`
+- Notes: Redundancy tested; ping succeeds across all PCs.
+
+#### Mesh Branch
+- 3 switches fully interconnected; each switch has one PC.
+- One switch uplinked to Core Switch.
+- IPs: 192.168.100.12 – 192.168.100.14
+- Screenshot: `mesh_branch.png`
+- Notes: Fully connected internal paths, tested with ping.
+
+#### Extended Star Branch
+- 6 PCs connected across 2 switches forming extended star.
+- One switch uplinked to Core Switch.
+- IPs: 192.168.100.15 – 192.168.100.21
+- Screenshot: `extended_star_branch.png`
+- Notes: Mirrors Star topology with more devices.
+
+---
+
+### 4. Server Configuration
+- **Server IP:** 192.168.100.20  
+- **Services:** DNS, HTTP, DHCP  
+- **DNS Domains:** Example test domain `www.local.com` resolving to server IP.  
+
+---
+
+### 5. Hybrid Overview
+- All branches are connected via the **Core Switch (2960)**.  
+- **Single subnet** ensures all PCs can ping each other and reach the server.  
+- Hybrid screenshot: `hybrid_full.png`  
+- Notes:  
+  - Orange link lights observed but connectivity verified  
+  - All branches tested individually and collectively  
+  - Ping tests confirm successful data exchange across all PCs
+
+---
+
+### 6. Extra Notes
+- Total PCs: 22 (PC0 – PC21)  
+- Hub used only in Bus segment.  
+- VLANs not configured in Part I.  
+- Basic network tested and fully operational in Packet Tracer.  
+
+---
 ## 🖧 Part II – VLAN Configuration (802.1Q)
 *(To be completed later)*
 
