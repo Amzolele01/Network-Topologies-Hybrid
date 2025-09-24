@@ -328,7 +328,7 @@ Switch0(config-if-range)# switchport mode trunk
 Switch0(config-if-range)# switchport trunk allowed vlan 10,20,30,40,50,99,100
 Switch0(config-if-range)# exit
 Switch0(config)# exit
-
+```
 > Branch switch uplinks must mirror the trunk configuration  
 
 ---
