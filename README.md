@@ -302,7 +302,7 @@ interface vlan 99
  ip address 192.168.99.2 255.255.255.0
  no shutdown
 exit
-#
+```bash
 - **Access ports** are assigned to the VLAN corresponding to the connected PC or server  
 - **Server port** is assigned to VLAN100  
 
