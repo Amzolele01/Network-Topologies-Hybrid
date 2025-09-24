@@ -241,8 +241,125 @@ All devices are in a **single subnet** (`192.168.100.0/24`) for simplicity and c
 - Basic network tested and fully operational in Packet Tracer.  
 
 ---
-## 🖧 Part II – VLAN Configuration (802.1Q)
-*(To be completed later)*
+## Part II – VLAN Configuration & Trunking (802.1Q)
+
+### 1. Overview
+Part II focuses on segmenting the network into **VLANs for each branch** and configuring **trunking** on uplink ports.  
+VLANs improve security by isolating traffic, reduce broadcast domains, and simplify network management.
+
+- **Core Switch:** Cisco 2960 (Switch0)  
+- **Branches:** Star, Bus, Ring, Mesh, Extended Star  
+- **VLANs:** Branch VLANs, Server VLAN, Management VLAN  
+- **Security Note:** VLAN99 is reserved for switch management and accessible only by authorized devices. Basic security is achieved by traffic isolation per VLAN.
+
+---
+
+### 2. VLAN Overview & IP Addressing
+
+| VLAN | Name      | Devices / Notes                   | IP/Subnet          |
+|------|-----------|----------------------------------|------------------|
+| 10   | STAR      | Star branch PCs (3)               | 192.168.10.0/24  |
+| 20   | BUS       | Bus branch PCs (4 via hub)       | 192.168.20.0/24  |
+| 30   | RING      | Ring branch PCs (4 across 3 switches) | 192.168.30.0/24 |
+| 40   | MESH      | Mesh branch PCs (4 across 3 switches) | 192.168.40.0/24 |
+| 50   | EXT_STAR  | Extended Star branch PCs (4 across 2 switches) | 192.168.50.0/24 |
+| 99   | MGMT      | Switch0 management (authorized PC only) | 192.168.99.2   |
+| 100  | SERVER    | Server providing DNS, HTTP, DHCP | 192.168.100.20  |
+
+> **Note:** All PCs and the server use `192.168.100.20` as their DNS.
+
+---
+
+### 3. Physical Connectivity
+- PCs → Branch Switches → Switch0 (Core)  
+- Bus branch PCs connected via hub → Switch0  
+- Server directly connected to Switch0 → VLAN100  
+- Management PC connects to VLAN99 for switch access
+
+---
+
+### 4. Switch0 VLAN Configuration (CLI Example)
+```bash
+enable
+configure terminal
+vlan 10
+ name STAR
+vlan 20
+ name BUS
+vlan 30
+ name RING
+vlan 40
+ name MESH
+vlan 50
+ name EXT_STAR
+vlan 99
+ name MGMT
+vlan 100
+ name SERVER
+exit
+
+interface vlan 99
+ ip address 192.168.99.2 255.255.255.0
+ no shutdown
+exit
+
+- **Access ports** are assigned to the VLAN corresponding to the connected PC or server  
+- **Server port** is assigned to VLAN100  
+
+---
+
+### 5. Trunk Port Planning
+- Uplink ports to branch switches:
+  - FA0/1 → Star branch  
+  - FA0/2 → Bus branch  
+  - FA0/3 → Ring branch  
+  - FA0/4 → Mesh branch  
+  - FA0/5 → Extended Star branch  
+- **Allowed VLANs on trunks:** 10, 20, 30, 40, 50, 99, 100  
+
+---
+
+### 6. Trunk Configuration (CLI Example)
+```bash
+Switch0> enable
+Switch0# configure terminal
+Switch0(config)# interface range FastEthernet0/1 - 5
+Switch0(config-if-range)# switchport mode trunk
+Switch0(config-if-range)# switchport trunk allowed vlan 10,20,30,40,50,99,100
+Switch0(config-if-range)# exit
+Switch0(config)# exit
+
+> Branch switch uplinks must mirror the trunk configuration  
+
+---
+
+### 7. Verification
+- `show interfaces trunk` → Check trunk status and allowed VLANs  
+- `show vlan brief` → Check VLAN assignments and ports  
+- `ping <PC IP>` → Test connectivity within VLAN  
+
+✅ PCs in the same VLAN can ping each other  
+✅ Trunks pass all VLANs  
+✅ Server responds to DNS queries  
+
+---
+
+### 8. Notes
+- VLAN99 is for secure switch management only  
+- VLAN100 is assigned to the server  
+- Each branch VLAN isolates traffic from other branches  
+- Basic security implemented via VLAN segmentation  
+
+---
+
+### 9. Status
+- VLANs created and assigned  
+- Switch0 management IP configured  
+- Server connected and assigned VLAN100 IP  
+- Trunks planned and configured  
+- Connectivity within VLANs verified  
+
+✅ **Part II Completed:** VLAN segmentation, trunking setup, management VLAN, server VLAN, and basic security implemented.
 
 ---
 
