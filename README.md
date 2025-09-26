@@ -6,15 +6,15 @@
 ---
 
 ## 📌 Project Overview
-This repository contains the implementation and documentation for the CMPG 325 Computer Networks semester-long project.  
-The project demonstrates the design, configuration, and simulation of multiple network topologies using Cisco Packet Tracer, with emphasis on IPv4 & IPv6 addressing, VLAN segmentation, server configuration, and network security.
+This repository contains the implementation and the documentation of CMPG 325 Computer Networks semester-long project.  
+The project demonstrates the design, configuration, and simulation of the network topologies using Cisco Packet Tracer, with emphasis on IPv4 & IPv6 addressing, VLAN segmentation, server configuration, and network security.
 
 ---
 
 ## 🎯 Project Objectives
 1. **Part I – Network Topologies Design & Simulation (60%)**  
-   - Implement Bus, Mesh, Star, Ring, and Extended Star topologies.  
-   - Design a Hybrid topology integrating elements of the above.  
+   - Implement 5 topologies: Bus, Mesh, Star, Ring, and Extended Star topologies.  
+   - Design a Hybrid topology integrating elements of the above 5 topologies.  
    - Configure IPv4/IPv6 addressing, VLAN segmentation, servers (HTTP/DNS/DHCP), and basic security.  
    - Document the process with IP tables, screenshots, and configuration notes.  
 
@@ -29,7 +29,7 @@ ________________________________________________________________________________
 ## 🖥 Part I – Network Topologies
 
 ### 1. Bus Topology
-The Bus topology connects multiple devices using a single central hub, simulating a shared communication medium. All PCs are connected to the hub, and data travels across the same backbone.
+The Bus topology connects multiple devices using a single central hub, simulating a shared communication medium. All PCs are connected to the hub, and data travels across the same backbone. Bus Topology was the first because it seemed different due to the Hub instead of Switch, but according to the plan, Star was the first, that is why Bus is using subnet __20__ and Star is using __10__
 
 #### IPv4 Addressing Table
 | Device | Interface | IPv4 Address  | Subnet Mask     | Default Gateway |
@@ -71,7 +71,7 @@ The Star topology connects all devices to a central switch. Each PC has its own 
 #### Configuration Notes
 - PCs connected to a central switch.  
 - Each PC assigned IPv4 addresses in the same subnet.  
-- Successful ping tests between PCs confirmed connectivity.
+- The ping tests were successful between PCs to confirm connectivity.
 
 ---
 
@@ -93,7 +93,7 @@ The Mesh topology connects every switch to every other switch, and each PC is co
 - Each PC connected to a dedicated switch.  
 - All switches connected to every other switch to simulate full mesh connectivity.  
 - Assigned IPv4 addresses within the same subnet.  
-- Verified connectivity through ping tests between all PCs.  
+- Connectivity was verified through ping tests between all PCs.  
 
 [Download the Cisco Packet Tracer topology - Mesh](pkt-files/mesh.pkt)
 
@@ -222,7 +222,8 @@ All devices are in a **single subnet** (`192.168.100.0/24`) for simplicity and c
 
 ### 5. Hybrid Overview
 - All branches are connected via the **Core Switch (2960)**.  
-- **Single subnet** ensures all PCs can ping each other and reach the server.  
+- **Single subnet** ensures all PCs can ping each other and reach the server.
+- **The server** is directly connected to the Core Switch, ensuring centralized access for all branches. Its services (DNS, HTTP, DHCP) are reachable across the entire hybrid topology.
 - Hybrid screenshot: `Hybrid.jpeg`  
 ![Alt text](./images/Hybrid.jpeg) 
 - Notes:  
@@ -278,7 +279,7 @@ VLANs improve security by isolating traffic, reduce broadcast domains, and simpl
 
 ---
 
-### 4. Switch0 VLAN Configuration (CLI Example)
+### 4. Switch0 VLAN Configuration (CLI commands)
 ```bash
 enable
 configure terminal
@@ -319,7 +320,7 @@ exit
 
 ---
 
-### 6. Trunk Configuration (CLI Example)
+### 6. Trunk Configuration (CLI Command)
 ```bash
 Switch0> enable
 Switch0# configure terminal
@@ -329,7 +330,7 @@ Switch0(config-if-range)# switchport trunk allowed vlan 10,20,30,40,50,99,100
 Switch0(config-if-range)# exit
 Switch0(config)# exit
 ```
-> Branch switch uplinks must mirror the trunk configuration  
+> Branch switch uplinks must mirrors the trunk configuration  
 
 ---
 
