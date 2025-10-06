@@ -226,7 +226,7 @@ All devices are in a **single subnet** (`192.168.100.0/24`) for simplicity and c
 - **Single subnet** ensures all PCs can ping each other and reach the server.
 - **The server** is directly connected to the Core Switch, ensuring centralized access for all branches. Its services (DNS, HTTP, DHCP) are reachable across the entire hybrid topology.
 - Hybrid screenshot: `Hybrid.jpeg`  
-![Alt text](./images/Hybrid.jpeg) 
+![Alt text](./images/HybridPart1.jpeg) 
 - Notes:  
   - Orange link lights observed but connectivity verified  
   - All branches tested individually and collectively  
