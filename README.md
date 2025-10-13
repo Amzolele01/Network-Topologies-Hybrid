@@ -1,132 +1,142 @@
-# CMPG 325 Computer Networks Individual Project (2025)
+# CMPG 325 – Computer Networks Individual Project (2025)
 
-## Faculty of Natural & Agricultural Science
-**Department of Computer Science**
+**Faculty:** Natural & Agricultural Sciences  
+**Department:** Computer Science  
+
+**Tools Used:** Cisco Packet Tracer 8.x, GitHub  
 
 ---
 
 ## 📌 Project Overview
-This repository contains the implementation and the documentation of CMPG 325 Computer Networks semester-long project.  
-The project demonstrates the design, configuration, and simulation of the network topologies using Cisco Packet Tracer, with emphasis on IPv4 & IPv6 addressing, VLAN segmentation, server configuration, and network security.
+This repository demonstrates the design, configuration, and simulation of network topologies using Cisco Packet Tracer. The focus is on:
+
+- IPv4 & IPv6 addressing  
+- VLAN segmentation  
+- Server configuration (DNS, HTTP, DHCP)  
+- Basic network security  
+
+The project is divided into three parts:
+
+1. **Network Topologies Design & Simulation (60%)**  
+2. **VLAN Configuration & Trunking (20%)**  
+3. **Video Demonstration (15–30 min) (20%)**  
 
 ---
 
 ## 🎯 Project Objectives
-1. **Part I – Network Topologies Design & Simulation (60%)**  
-   - Implement 5 topologies: Bus, Mesh, Star, Ring, and Extended Star topologies.  
-   - Design a Hybrid topology integrating elements of the above 5 topologies.  
-   - Configure IPv4&IPv6 addressing, VLAN segmentation, servers (HTTP/DNS/DHCP), and basic security.  
-   - Document the process with IP tables, screenshots, and configuration notes.  
 
-2. **Part II – Network Feature Configuration (20%)**  
-   - Configure Port-based VLANs with trunking (802.1Q).  
+**Part I – Network Topologies Design & Simulation**
 
-3. **Part III – Video Demonstration (20%)**  
-   - Record a 15–30 minute demonstration video explaining the designs, configurations, and testing results.  
+- Implement Bus, Mesh, Star, Ring, and Extended Star topologies  
+- Design a Hybrid topology integrating elements of the above  
+- Configure IPv4 & IPv6 addressing, VLANs, servers, and basic security  
+- Document with IP tables, screenshots, and configuration notes  
 
-___________________________________________________________________________________________________________________________
+**Part II – Network Feature Configuration**
+
+- Configure Port-based VLANs with trunking (802.1Q)  
+
+**Part III – Video Demonstration**
+
+- Record a 15–30 minute video demonstrating configurations, testing, and reflection  
+
+---
 
 ## 🖥 Part I – Network Topologies
 
 ### 1. Bus Topology
-The Bus topology connects multiple devices using a single central hub, simulating a shared communication medium. All PCs are connected to the hub, and data travels across the same backbone. Bus Topology was the first because it seemed different due to the Hub instead of Switch, but according to the plan, Star was the first, that is why Bus is using subnet __20__ and Star is using __10__
+**Description:** Connects devices via a hub (shared medium).  
+**Subnet:** 192.168.20.0/24  
 
-#### IPv4 Addressing Table
-| Device | Interface | IPv4 Address  | Subnet Mask     | Default Gateway |
-|--------|-----------|---------------|-----------------|----------------|
-| PC0    | FastEthernet0 | 192.168.20.2 | 255.255.255.0 | 192.168.20.1 |
-| PC1    | FastEthernet0 | 192.168.20.3 | 255.255.255.0 | 192.168.20.1 |
-| PC2    | FastEthernet0 | 192.168.20.4 | 255.255.255.0 | 192.168.20.1 |
-| PC3    | FastEthernet0 | 192.168.20.5 | 255.255.255.0 | 192.168.20.1 |
+| Device | Interface | IPv4 Address | Subnet Mask | Default Gateway |
+|--------|-----------|-------------|------------|----------------|
+| PC0    | Fa0       | 192.168.20.2 | 255.255.255.0 | 192.168.20.1 |
+| PC1    | Fa0       | 192.168.20.3 | 255.255.255.0 | 192.168.20.1 |
+| PC2    | Fa0       | 192.168.20.4 | 255.255.255.0 | 192.168.20.1 |
+| PC3    | Fa0       | 192.168.20.5 | 255.255.255.0 | 192.168.20.1 |
+
+**Configuration Notes:**
+- Hub simulates bus topology  
+- All PCs in the same subnet  
+- Ping tests successful  
 
 #### Screenshot
 ![Alt text](./images/Bus.jpeg)
-
-#### Configuration Notes
-- Used a hub to represent the shared bus.  
-- All PCs configured in the same subnet.  
-- Successful ping tests confirmed communication between devices.  
-
 [Download the Cisco Packet Tracer topology - Bus](pkt-files/Bus.pkt)
 
 ---
 
 ### 2. Star Topology
-The Star topology connects all devices to a central switch. Each PC has its own dedicated link to the switch, making it reliable and easy to manage.
+### 2. Star Topology
+**Description:** All PCs connected to a central switch.  
+**Subnet:** 192.168.10.0/24  
 
-#### IPv4 Addressing Table
-| Device | Interface | IPv4 Address  | Subnet Mask     | Default Gateway |
-|--------|-----------|---------------|-----------------|----------------|
-| PC0    | FastEthernet0 | 192.168.10.2 | 255.255.255.0 | 192.168.10.1 |
-| PC1    | FastEthernet0 | 192.168.10.3 | 255.255.255.0 | 192.168.10.1 |
-| PC2    | FastEthernet0 | 192.168.10.4 | 255.255.255.0 | 192.168.10.1 |
-| PC3    | FastEthernet0 | 192.168.10.5 | 255.255.255.0 | 192.168.10.1 |
+| Device | Interface | IPv4 Address | Subnet Mask | Default Gateway |
+|--------|-----------|-------------|------------|----------------|
+| PC0    | Fa0       | 192.168.10.2 | 255.255.255.0 | 192.168.10.1 |
+| PC1    | Fa0       | 192.168.10.3 | 255.255.255.0 | 192.168.10.1 |
+| PC2    | Fa0       | 192.168.10.4 | 255.255.255.0 | 192.168.10.1 |
+| PC3    | Fa0       | 192.168.10.5 | 255.255.255.0 | 192.168.10.1 |
 
+**Configuration Notes:**
+- PCs connected to central switch  
+- Ping tests successful 
 
 #### Screenshot
 ![Alt text](./images/Star.jpeg)
 #### ptk file
 [Download the Cisco Packet Tracer topology - Star](pkt-files/Star.pkt)
 
-#### Configuration Notes
-- PCs connected to a central switch.  
-- Each PC assigned IPv4 addresses in the same subnet.  
-- The ping tests were successful between PCs to confirm connectivity.
-
 ---
 
 ### 3. Mesh Topology
 The Mesh topology connects every switch to every other switch, and each PC is connected to its dedicated switch. This setup ensures high redundancy and reliability. Even if one link fails, all PCs can still communicate through alternative paths.
 
-#### IPv4 Addressing Table
-| Device | Interface | IPv4 Address  | Subnet Mask     | Default Gateway |
-|--------|-----------|---------------|-----------------|----------------|
-| PC0    | FastEthernet0 | 192.168.30.2 | 255.255.255.0 | 192.168.30.1 |
-| PC1    | FastEthernet0 | 192.168.30.3 | 255.255.255.0 | 192.168.30.1 |
-| PC2    | FastEthernet0 | 192.168.30.4 | 255.255.255.0 | 192.168.30.1 |
-| PC3    | FastEthernet0 | 192.168.30.5 | 255.255.255.0 | 192.168.30.1 |
+### 3. Mesh Topology
+**Description:** Every switch connected to every other switch; each PC to a dedicated switch.  
+**Subnet:** 192.168.30.0/24  
+
+| Device | Interface | IPv4 Address | Subnet Mask | Default Gateway |
+|--------|-----------|-------------|------------|----------------|
+| PC0    | Fa0       | 192.168.30.2 | 255.255.255.0 | 192.168.30.1 |
+| PC1    | Fa0       | 192.168.30.3 | 255.255.255.0 | 192.168.30.1 |
+| PC2    | Fa0       | 192.168.30.4 | 255.255.255.0 | 192.168.30.1 |
+| PC3    | Fa0       | 192.168.30.5 | 255.255.255.0 | 192.168.30.1 |
+
+**Configuration Notes:**
+- Full mesh connectivity ensures redundancy  
+- Ping tests successful  
 
 #### Screenshot
 ![Alt text](./images/mesh.jpeg)
-
-#### Configuration Notes
-- Each PC connected to a dedicated switch.  
-- All switches connected to every other switch to simulate full mesh connectivity.  
-- Assigned IPv4 addresses within the same subnet.  
-- Connectivity was verified through ping tests between all PCs.  
 
 [Download the Cisco Packet Tracer topology - Mesh](pkt-files/mesh.pkt)
 
 ---
 ### 4. Ring Topology
-The Ring topology connects devices in a closed loop, where each device is connected to exactly two others, forming a circular pathway. Data travels in one or both directions around the ring.
+**Description:** Devices connected in a closed loop; data travels around the ring.  
+**Subnet:** 192.168.40.0/24  
 
-#### IPv4 Addressing Table
-| Device | Interface | IPv4 Address  | Subnet Mask     | Default Gateway |
-|--------|-----------|---------------|-----------------|----------------|
-| PC0    | FastEthernet0 | 192.168.40.2 | 255.255.255.0 | 192.168.40.1 |
-| PC1    | FastEthernet0 | 192.168.40.3 | 255.255.255.0 | 192.168.40.1 |
-| PC2    | FastEthernet0 | 192.168.40.4 | 255.255.255.0 | 192.168.40.1 |
-| PC3    | FastEthernet0 | 192.168.40.5 | 255.255.255.0 | 192.168.40.1 |
+| Device | Interface | IPv4 Address | Subnet Mask | Default Gateway |
+|--------|-----------|-------------|------------|----------------|
+| PC0    | Fa0       | 192.168.40.2 | 255.255.255.0 | 192.168.40.1 |
+| PC1    | Fa0       | 192.168.40.3 | 255.255.255.0 | 192.168.40.1 |
+| PC2    | Fa0       | 192.168.40.4 | 255.255.255.0 | 192.168.40.1 |
+| PC3    | Fa0       | 192.168.40.5 | 255.255.255.0 | 192.168.40.1 |
+
+**Configuration Notes:**
+- Ring loop with 3 switches  
+- Ping tests successful  
 
 #### Screenshot
 ![Alt text](./images/ring.jpeg)
-
-#### Configuration Notes
-- Each PC connected to a switch forming a circular ring.  
-- Each switch connected to two other switches to complete the loop.  
-- IPv4 addresses assigned in the same subnet.  
-- Connectivity confirmed with successful ping tests around the ring.  
-
 [Download the Cisco Packet Tracer topology - Ring](pkt-files/ring.pkt)
 
 ---
 
 ### 5. Extended Star Topology
-The Extended Star topology is a hierarchical structure where a central switch connects to multiple peripheral switches, and each peripheral switch connects to several PCs. This design provides scalability and improved management compared to a simple star.
-
-#### IPv4 Addressing Table
-All devices are assigned IP addresses from the same subnet (192.168.50.0/24). This allows direct communication between all PCs without requiring a router.
+**Description:** Hierarchical star with a central switch connecting peripheral switches.  
+**Subnet:** 192.168.50.0/24 
 
 | Device | Interface      | IPv4 Address   | Subnet Mask     | Default Gateway |
 |--------|----------------|----------------|-----------------|----------------|
@@ -143,15 +153,12 @@ All devices are assigned IP addresses from the same subnet (192.168.50.0/24). Th
 | PC10   | FastEthernet0  | 192.168.50.12  | 255.255.255.0   | 192.168.50.1   |
 | PC11   | FastEthernet0  | 192.168.50.13  | 255.255.255.0   | 192.168.50.1   |
 
+**Configuration Notes:**
+- Central switch + peripheral switches  
+- Ping tests successful    
+
 #### Screenshot
 ![Alt text](./images/exStar.jpeg) 
-
-#### Configuration Notes
-- 1 central switch connects to 4 peripheral switches.  
-- Each peripheral switch connects to 3 PCs (total 12 PCs).  
-- All PCs share the subnet 192.168.50.0/24 for simplicity.  
-- Verified full connectivity with successful ping tests between PCs across all switches.  
-
 [Download the Cisco Packet Tracer topology - Extended Star](pkt-files/exStar.pkt)
 
 ---
