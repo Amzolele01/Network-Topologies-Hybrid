@@ -335,7 +335,6 @@ exit
 ---
 
 ### 5. Trunk Port Planning
-- Uplink ports to branch switches:
 
 | Port  | Connected Branch | Allowed VLANs      |
 |--------|------------------|--------------------|
@@ -345,7 +344,7 @@ exit
 | Fa0/4  | Mesh Branch      | 40, 99, 100        |
 | Fa0/5  | Extended Star    | 50, 99, 100        |
 
-- **Allowed VLANs on trunks:** 10, 20, 30, 40, 50, 99, 100  
+- **Allowed VLANs on trunks:** 10, 20, 30, 40, 50, 99, 100  for full Hybrid communication 
 
 ---
 
@@ -359,7 +358,7 @@ Switch0(config-if-range)# switchport trunk allowed vlan 10,20,30,40,50,99,100
 Switch0(config-if-range)# exit
 Switch0(config)# exit
 ```
-> Branch switch uplinks must mirrors the trunk configuration  
+> each **Branch switch uplink** must mirrors the trunk configuration  
 
 ---
 
@@ -368,26 +367,36 @@ Switch0(config)# exit
 - `show vlan brief` → Check VLAN assignments and ports  
 - `ping <PC IP>` → Test connectivity within VLAN  
 
-✅ PCs in the same VLAN can ping each other  
-✅ Trunks pass all VLANs  
-✅ Server responds to DNS queries  
+- ✅All VLANs created and active on Switch0.  
+- ✅Trunk links established successfully
+- ✅PCs within the same VLAN can ping each other
+- ✅Server (192.168.100.20) reachable from all PCs
+- ✅ Admin PC (192.168.99.10) can manage Switch0 (192.168.99.2). 
+- ✅ Hybrid PCs (VLAN100) can communicate with the server and across VLANs through inter-VLAN routing
+- ⚙️ Mail service currently works only to/from the server (client-to-client mail still under testing).
+
 
 ---
 
 ### 8. Notes
 - VLAN99 is for secure switch management only  
-- VLAN100 is assigned to the server  
-- Each branch VLAN isolates traffic from other branches  
-- Basic security implemented via VLAN segmentation  
+- VLAN100 serves both Server and Hybrid PC subnet.  
+- Each branch VLAN isolates traffic from other branches
+- All devices use the server’s DNS (192.168.100.20)
+- Basic security implemented via VLAN separation and controlled management access.
 
 ---
 
 ### 9. Status
-- VLANs created and assigned  
-- Switch0 management IP configured  
-- Server connected and assigned VLAN100 IP  
-- Trunks planned and configured  
-- Connectivity within VLANs verified  
+
+| Task | Description | Status |
+|------|--------------|--------|
+| VLANs created | VLANs 10–100 configured | ✅ |
+| Trunks configured | Fa0/1–Fa0/5 trunking active | ✅ |
+| Management VLAN setup | VLAN99 and Admin PC tested | ✅ |
+| Server VLAN operational | VLAN100 working | ✅ |
+| Connectivity test | Ping successful between all PCs | ✅ |
+| Email test | Working from clients → Server only | ⚙️ (Partial) |
 
 ✅ **Part II Completed:** VLAN segmentation, trunking setup, management VLAN, server VLAN, and basic security implemented.
 
