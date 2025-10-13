@@ -418,7 +418,7 @@ Switch0(config)# exit
 
 
 - ![Alt text](./images/PartII.jpeg)
-- [Download the Cisco Packet Tracer topology - Bus](pkt-files/HybridPart-II.pkt)
+- [Download the Cisco Packet Tracer topology - PartII](pkt-files/HybridPart-II.pkt)
 
 
 ✅ **Part II Completed:** VLAN segmentation, trunking setup, management VLAN, server VLAN, and basic security implemented.
@@ -439,7 +439,7 @@ Switch0(config)# exit
 
 
 - [Part 1 – Network Topologies Overview](https://youtu.be/jGJfe1EkYz0)
-- [Part 2 – Network Feature Configuration](https://youtu.be/your_link_here)
+- [Part 2 – Network Feature Configuration](https://youtu.be/_AVZ0qGsGeQ)
 
 - 
 ### ✅ Conclusion
