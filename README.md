@@ -432,6 +432,11 @@ Switch0(config)# exit
 - Connectivity verification  
 - Reflection on learning outcomes  
 
+
+- [Part 1 – Network Topologies Overview](https://youtu.be/jGJfe1EkYz0)
+- [Part 2 – Network Feature Configuration](https://youtu.be/your_link_here)
+
+- 
 ### ✅ Conclusion
 
 This project demonstrates:  
