@@ -260,9 +260,9 @@ VLANs improve *security*, *broadcast control*, and *network organization & manag
 - **Special Network:** Hybrid (with server and admin PC)
   
 - **VLANs:**
-     *+ Branch VLANs (10 - 50)
-     *+ Server VLAN(100)
-     *+ Management VLAN(99)
+   + Branch VLANs (10 - 50)
+   + Server VLAN(100)
+   + Management VLAN(99)
     
 - **Security Note:**
 VLAN99 is reserved for switch management and accessible only by authorized PC. Basic security is achieved by VLAN segmentation.
