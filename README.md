@@ -253,12 +253,19 @@ All devices are in a **single subnet** (`192.168.100.0/24`) for simplicity and c
 
 ### 1. Overview
 Part II focuses on segmenting the network into **VLANs for each branch** and configuring **trunking** on uplink ports.  
-VLANs improve security by isolating traffic, reduce broadcast domains, and simplify network management.
+VLANs improve *security*, *broadcast control*, and *network organization & management.*
 
 - **Core Switch:** Cisco 2960 (Switch0)  
-- **Branches:** Star, Bus, Ring, Mesh, Extended Star  
-- **VLANs:** Branch VLANs, Server VLAN, Management VLAN  
-- **Security Note:** VLAN99 is reserved for switch management and accessible only by authorized devices. Basic security is achieved by traffic isolation per VLAN.
+- **Branches:** Star, Bus, Ring, Mesh, Extended Star
+- **Special Network:** Hybrid (with server and admin PC)
+  
+- **VLANs:**
+     *+ Branch VLANs (10 - 50)
+     *+ Server VLAN(100)
+     *+ Management VLAN(99)
+    
+- **Security Note:**
+VLAN99 is reserved for switch management and accessible only by authorized PC. Basic security is achieved by VLAN segmentation.
 
 ---
 
@@ -274,15 +281,25 @@ VLANs improve security by isolating traffic, reduce broadcast domains, and simpl
 | 99   | MGMT      | Switch0 management (authorized PC only) | 192.168.99.2   |
 | 100  | SERVER    | Server providing DNS, HTTP, DHCP | 192.168.100.20  |
 
-> **Note:** All PCs and the server use `192.168.100.20` as their DNS.
+✅ **Server IP:** 192.168.100.20
+✅ **Admin IP:** 192.168.99.10
+✅ **DNS for all PCs:** 192.168.100.20 (Server IP)
 
 ---
 
 ### 3. Physical Connectivity
+- PCs Connected to branch switches (depending on topology type).
+- Branch Switches connected to the Core Switch (Switch0) via **trunk links.**
+- The *Server* connects directly to Switch) via VLAN100.
+- The **Admin PC** connect directly to the **Switch0** on VLAN99(as management).
+- Hybrid PCs(9-14) use VLAN100 for server-based applications and cross branch services.
+
+**Topology Path:**
 - PCs → Branch Switches → Switch0 (Core)  
 - Bus branch PCs connected via hub → Switch0  
 - Server directly connected to Switch0 → VLAN100  
-- Management PC connects to VLAN99 for switch access
+- Admin PC directly connected to Switch0
+  
 
 ---
 
@@ -312,17 +329,21 @@ interface vlan 99
 exit
 ```
 - **Access ports** are assigned to the VLAN corresponding to the connected PC or server  
-- **Server port** is assigned to VLAN100  
+- **Server port** is assigned to VLAN100
+- **Admin PC port** assigned to VLAN99
 
 ---
 
 ### 5. Trunk Port Planning
 - Uplink ports to branch switches:
-  - FA0/1 → Star branch  
-  - FA0/2 → Bus branch  
-  - FA0/3 → Ring branch  
-  - FA0/4 → Mesh branch  
-  - FA0/5 → Extended Star branch  
+Port        Connected Branch     Trunk VLANs Allowed
+----------------------------------------------------
+Fa0/1       Star Branch          10,99,100
+Fa0/2       Bus Branch           20,99,100
+Fa0/3       Ring Branch          30,99,100
+Fa0/4       Mesh Branch          40,99,100
+Fa0/5       Extended Star        50,99,100
+---------------------------------------------------- 
 - **Allowed VLANs on trunks:** 10, 20, 30, 40, 50, 99, 100  
 
 ---
