@@ -336,14 +336,14 @@ exit
 
 ### 5. Trunk Port Planning
 - Uplink ports to branch switches:
-Port        Connected Branch     Trunk VLANs Allowed
-----------------------------------------------------
-Fa0/1       Star Branch          10,99,100
-Fa0/2       Bus Branch           20,99,100
-Fa0/3       Ring Branch          30,99,100
-Fa0/4       Mesh Branch          40,99,100
-Fa0/5       Extended Star        50,99,100
----------------------------------------------------- 
+| Port  | Connected Branch | Allowed VLANs      |
+|--------|------------------|--------------------|
+| Fa0/1  | Star Branch      | 10, 99, 100        |
+| Fa0/2  | Bus Branch       | 20, 99, 100        |
+| Fa0/3  | Ring Branch      | 30, 99, 100        |
+| Fa0/4  | Mesh Branch      | 40, 99, 100        |
+| Fa0/5  | Extended Star    | 50, 99, 100        |
+
 - **Allowed VLANs on trunks:** 10, 20, 30, 40, 50, 99, 100  
 
 ---
