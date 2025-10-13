@@ -181,44 +181,52 @@ All devices are in a **single subnet** (`192.168.100.0/24`) for simplicity and c
 
 #### Bus Branch
 - 4 PCs connected to **PT Hub0**; hub uplinked to Core Switch.
-- IPs: 192.168.10.2 – 192.168.10.5
+- IPv4: 192.168.10.2 – 192.168.10.5
+- IPv6: 2001:db8:acad:10::2 – 2001:db8:acad:10::5
 - Screenshot: `bus_branch.jpeg`
 - Notes: Hub simulates shared bus medium. PCs tested with ping within branch and to other branches.
 
 #### Star Branch
 - 3 PCs connected to one switch.
-- IPs: 192.168.10.6 – 192.168.10.8
+- IPv4: 192.168.10.6 – 192.168.10.8
+- IPv6: 2001:db8:acad:10::6 – 2001:db8:acad:10::8
 - Screenshot: `star_branch.jpeg` 
 - Notes: Central switch allows full connectivity to Hybrid.
 
 #### Extended Star Branch
 - 6 PCs connected across 2 switches forming extended star.
 - One switch uplinked to Core Switch.
-- IPs: 192.168.10.9 – 192.168.10.14
+- IPv4: 192.168.10.9 – 192.168.10.14
+- IPv6: 2001:db8:acad:10::9 – 2001:db8:acad:10::14
 - Screenshot: `extended_star_branch.jpeg`
 - Notes: Mirrors Star topology with more devices.
 
 #### Ring Branch
 - 3 switches connected in a loop, each with one PC.
 - One switch uplinked to Core Switch.
-- IPs: 192.168.10.15 – 192.168.10.18
+- IPv4: 192.168.10.15 – 192.168.10.18
+- IPv6: 2001:db8:acad:10::15 – 2001:db8:acad:10::18
 - Screenshot: `ring_branch.jpeg`
 - Notes: Redundancy tested; ping succeeds across all PCs.
 
 #### Mesh Branch
 - 3 switches fully interconnected; each switch has one PC.
 - One switch uplinked to Core Switch.
-- IPs: 192.168.10.19 – 192.168.10.22
+- IPv4: 192.168.10.19 – 192.168.10.22
+- IPv6: 2001:db8:acad:10::19 – 2001:db8:acad:10::22
 - Screenshot: `mesh_branch.jpeg`
 - Notes: Fully connected internal paths, tested with ping.
 
 ---
 
 ### 4. Server Configuration
-- **Server IP:** 192.168.10.100
-- **Admin PC IP:** 192.168.10.101
-- **Services:** DNS, HTTP, DHCP  
-- **DNS Domains:** Example test domain `www.local.com` resolving to server IP.  
+
+| Service | Status  | Description |
+|---------|---------|-------------|
+| DNS     | Enabled | Resolves domain `www.local.com` → `192.168.10.100 / 2001:db8:acad:10::100` |
+| HTTP    | Enabled | Hosts a simple test webpage accessible via both IPv4 & IPv6 |
+| DHCP    | Enabled | Assigns both IPv4 and IPv6 addresses dynamically (where applicable) |
+
 
 ---
 
@@ -238,7 +246,9 @@ All devices are in a **single subnet** (`192.168.100.0/24`) for simplicity and c
 ---
 
 ### 6. Extra Notes
-- Total PCs: 22 (PC0 – PC21)
+- Total PCs: 22 (PC0 – PC21) + 1 Server + 1 Admin PC
+- IPv4 Gateway: 192.168.10.1
+- IPv6 Gateway: 2001:db8:acad:10::1
 - Server & Admin PC port connections
 - Ping tests verified
 - Envelope simulation pending services
