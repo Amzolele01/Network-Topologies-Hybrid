@@ -417,8 +417,8 @@ Switch0(config)# exit
 | Email test | Working from clients → Server only | ⚙️ (Partial) |
 
 
-![Alt text](./images/WhatsApp Image 2025-10-13 at 23.41.30.jpeg)
-[Download the Cisco Packet Tracer topology - Bus](pkt-files/HybridPart-II.pkt)
+- ![Alt text](./images/PartII.jpeg)
+- [Download the Cisco Packet Tracer topology - Bus](pkt-files/HybridPart-II.pkt)
 
 
 ✅ **Part II Completed:** VLAN segmentation, trunking setup, management VLAN, server VLAN, and basic security implemented.
