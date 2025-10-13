@@ -420,13 +420,24 @@ Switch0(config)# exit
 
 ---
 
-## 🎥 Part III – Video Demonstration
-*(To be completed after documentation and configuration are done)*
+🎥 Part III – Video Demonstration
+--------------------------------
 
----
+### ✅ Checklist for Video
 
-## ✅ Conclusion
-This project demonstrates the design and configuration of multiple network topologies in Cisco Packet Tracer, the implementation of VLANs, and the documentation of results in line with the CMPG 325 rubric.
+- Project objectives & overview  
+- Walkthrough of each topology  
+- Hybrid topology configuration & testing  
+- VLAN & trunking demonstration  
+- Connectivity verification  
+- Reflection on learning outcomes  
 
----
+### ✅ Conclusion
 
+This project demonstrates:  
+
+- Network topology design and simulation (Bus, Star, Ring, Mesh, Extended Star, Hybrid)  
+- IPv4 & IPv6 addressing  
+- VLAN configuration and trunking (802.1Q)  
+- Server setup with DNS, HTTP, DHCP  
+- Documentation of configuration, screenshots, and testing results
