@@ -281,9 +281,9 @@ VLAN99 is reserved for switch management and accessible only by authorized PC. B
 | 99   | MGMT      | Switch0 management (authorized PC only) | 192.168.99.2   |
 | 100  | SERVER    | Server providing DNS, HTTP, DHCP | 192.168.100.20  |
 
-✅ **Server IP:** 192.168.100.20
-✅ **Admin IP:** 192.168.99.10
-✅ **DNS for all PCs:** 192.168.100.20 (Server IP)
+- ✅ **Server IP:** 192.168.100.20
+- ✅ **Admin IP:** 192.168.99.10
+- ✅ **DNS for all PCs:** 192.168.100.20 (Server IP)
 
 ---
 
@@ -336,6 +336,7 @@ exit
 
 ### 5. Trunk Port Planning
 - Uplink ports to branch switches:
+
 | Port  | Connected Branch | Allowed VLANs      |
 |--------|------------------|--------------------|
 | Fa0/1  | Star Branch      | 10, 99, 100        |
