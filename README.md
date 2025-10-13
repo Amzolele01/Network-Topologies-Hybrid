@@ -15,7 +15,7 @@ The project demonstrates the design, configuration, and simulation of the networ
 1. **Part I – Network Topologies Design & Simulation (60%)**  
    - Implement 5 topologies: Bus, Mesh, Star, Ring, and Extended Star topologies.  
    - Design a Hybrid topology integrating elements of the above 5 topologies.  
-   - Configure IPv4/IPv6 addressing, VLAN segmentation, servers (HTTP/DNS/DHCP), and basic security.  
+   - Configure IPv4&IPv6 addressing, VLAN segmentation, servers (HTTP/DNS/DHCP), and basic security.  
    - Document the process with IP tables, screenshots, and configuration notes.  
 
 2. **Part II – Network Feature Configuration (20%)**  
@@ -167,12 +167,13 @@ The network consists of 22 PCs, one Core Switch (Cisco 2960), one Hub (PT Hub0 f
 ### 2. IP Address Plan
 All devices are in a **single subnet** (`192.168.100.0/24`) for simplicity and connectivity.
 
-| Device Type | Devices          | IP Addresses               | Notes |
-|-------------|-----------------|----------------------------|-------|
-| PCs         | PC0 – PC21      | 192.168.100.2 – 192.168.100.23 | Sequential assignment per branch |
-| Server      | Server0         | 192.168.100.20             | DNS, HTTP, DHCP |
-| Core Switch | Switch0 (2960)  | N/A                        | Connects all branches |
-| Hub         | PT Hub0         | N/A                        | Bus segment only |
+| Device Type  | Devices      | IPv4 Addresses            | IPv6 Addresses                     | Default Gateway                       | Notes                          |
+|-------------|--------------|--------------------------|-----------------------------------|--------------------------------------|--------------------------------|
+| PCs         | PC0 – PC21   | 192.168.10.2 – 192.168.10.23 | 2001:db8:acad:10::2 – 2001:db8:acad:10::23 | 192.168.10.1 / 2001:db8:acad:10::1 | Sequentially assigned          |
+| Server      | Server0      | 192.168.10.100           | 2001:db8:acad:10::100             | 192.168.10.1 / 2001:db8:acad:10::1 | DNS, HTTP, DHCP enabled        |
+| Admin PC    | AdminPC      | 192.168.10.101           | 2001:db8:acad:10::101             | 192.168.10.1 / 2001:db8:acad:10::1 | Used for configuration & testing |
+| Core Switch | Switch0 (2960)| N/A                      | N/A                               | N/A                                  | Central interconnection        |
+| Hub         | PT Hub0      | N/A                      | N/A                               | N/A                                  | Hub used for Bus segment only  |
 
 ---
 
