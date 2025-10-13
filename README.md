@@ -3,7 +3,7 @@
 **Faculty:** Natural & Agricultural Sciences  
 **Department:** Computer Science  
 
-**Tools Used:** Cisco Packet Tracer 8.x, GitHub  
+**Tools Used:** Cisco Packet Tracer, GitHub  
 
 ---
 
