@@ -417,7 +417,7 @@ Switch0(config)# exit
 | Email test | Working from clients → Server only | ⚙️ (Partial) |
 
 
-![Alt text](./images/Bus.jpeg)
+![Alt text](./images/WhatsApp Image 2025-10-13 at 23.41.30.jpeg)
 [Download the Cisco Packet Tracer topology - Bus](pkt-files/HybridPart-II.pkt)
 
 
