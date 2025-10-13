@@ -416,6 +416,11 @@ Switch0(config)# exit
 | Connectivity test | Ping successful between all PCs | ✅ |
 | Email test | Working from clients → Server only | ⚙️ (Partial) |
 
+
+![Alt text](./images/Bus.jpeg)
+[Download the Cisco Packet Tracer topology - Bus](pkt-files/HybridPart-II.pkt)
+
+
 ✅ **Part II Completed:** VLAN segmentation, trunking setup, management VLAN, server VLAN, and basic security implemented.
 
 ---
